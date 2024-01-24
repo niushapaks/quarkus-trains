@@ -2,7 +2,7 @@
 
 This project is a POC to demonstrate how Quarkus is helping us to fastly build a very simple REST API exposing a list of trains, tracked by their positions by another gRPC service.
 
-The REST API [quarkus-trains-backend](https://github.com/niushapaks/quarkus-trains/blob/main/quarkus-trains-backend) is exposing each of those trains through the [TrainsResource](https://github.com/niushapaks/quarkus-trains/blob/main/quarkus-trains-backend/src/main/java/eu/pakseresht/trains/TrainResource.java) using quarkus-resteasy:
+The REST API [quarkus-trains-backend](https://github.com/niushapaks/quarkus-trains/blob/main/quarkus-trains-backend) is exposing each of those trains through the [TrainResource](https://github.com/niushapaks/quarkus-trains/blob/main/quarkus-trains-backend/src/main/java/eu/pakseresht/trains/TrainResource.java) using quarkus-resteasy:
 
 ```
 GET http://localhost:8080/trains
