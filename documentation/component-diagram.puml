@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+
+cloud "Cloud environment" {
+  REST - [quarkus-trains-backend : jvm]
+  GRPC - [quarkus-trains-positions-service : jvm]
+  [quarkus-trains-backend : jvm] --> GRPC
+}
+
+node "Client" {
+  [Web UI] --> REST
+}
+
+node "Embedded system" {
+  [quarkus-trains-positions-client : native] --> GRPC
+}
+
+@enduml
