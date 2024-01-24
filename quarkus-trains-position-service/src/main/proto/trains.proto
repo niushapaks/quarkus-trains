@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "eu.pakseresht.trains";
+option java_outer_classname = "TrainGrpcProto";
+
+package eu.pakseresht.trains;
+
+service TrainPositionService {
+    rpc ReportPosition (PositionRequest) returns (PositionResponse);
+    rpc GetPosition(GetPositionRequest) returns (TrainPosition);
+}
+
+message GetPositionRequest {
+    int64 trainId = 1;
+}
+
+message PositionRequest {
+    int64 trainId = 1;
+    int64 trackId = 2;
+    float kilometer = 3;
+}
+
+message PositionResponse {
+    TrainPosition actualTrain = 1;
+    TrainPosition previousTrain = 2;
+    TrainPosition nextTrain = 3;
+}
+
+message TrainPosition {
+    int64 trainId = 1;
+    int64 trackId = 2;
+    float kilometer = 3;
+}
