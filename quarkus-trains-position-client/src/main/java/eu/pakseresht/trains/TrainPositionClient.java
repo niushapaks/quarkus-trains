@@ -26,7 +26,7 @@ public class TrainPositionClient implements QuarkusApplication {
     }
 
     @Scheduled(every="5s")
-    void increment() {
+    void triggerPositionReport() {
         PositionRequest request = generateRandomPosition(trainId, trackId);
         PositionResponse positionResponse = null;
         try{
@@ -46,17 +46,17 @@ public class TrainPositionClient implements QuarkusApplication {
         System.out.println("Train actuel - ID : " + positionResponse.getActualTrain().getTrainId() +
                 ", Kilomètre : " + positionResponse.getActualTrain().getKilometer());
 
-            TrainPosition previousTrain = positionResponse.getPreviousTrain();
+        TrainPosition previousTrain = positionResponse.getPreviousTrain();
         if (previousTrain.getTrainId() != 0) {
             System.out.println("Train précédent - ID : " + previousTrain.getTrainId() +
                     ", Kilomètre : " + previousTrain.getKilometer());
         }
 
         TrainPosition nextTrain = positionResponse.getNextTrain();
-            if (nextTrain.getTrainId() != 0) {
-                System.out.println("Train suivant - ID : " + nextTrain.getTrainId() +
-                        ", Kilomètre : " + nextTrain.getKilometer());
-            }
+        if (nextTrain.getTrainId() != 0) {
+            System.out.println("Train suivant - ID : " + nextTrain.getTrainId() +
+                    ", Kilomètre : " + nextTrain.getKilometer());
+        }
     }
 
     private PositionRequest generateRandomPosition(long trainId, long trackId) {
