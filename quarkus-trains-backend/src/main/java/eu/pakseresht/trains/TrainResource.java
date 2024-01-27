@@ -30,6 +30,7 @@ public class TrainResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<TrainDto> getTrains() {
         return trainDtos.stream()
+                // TODO : do not do that in a real example ! trainDto should be immutable.
                 .peek(trainDto -> {
                     TrainPosition position = trainPositionService.getPosition(
                             GetPositionRequest.newBuilder().setTrainId(trainDto.getId()).build()
