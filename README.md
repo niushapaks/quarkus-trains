@@ -49,3 +49,8 @@ Wheter as a java app, or as a native executable, quarkus-trains-position-client'
 target % ./quarkus-trains-position-client-1.0.0-SNAPSHOT-runner 78 42
 ```
 
+## Video
+This POC was presented at Montreal JUG conference the January 24th 2024 (in French) : 
+- [Video](https://www.youtube.com/watch?v=f0FsWVUCZg8)
+- [Presentation](https://github.com/niushapaks/quarkus-trains/blob/main/documentation/presentation-montreal-jug-2024-01-24-fr.pdf)
+
